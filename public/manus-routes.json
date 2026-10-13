@@ -1,0 +1,8 @@
+{
+  "routes": [
+    { "path": "/", "title": "Pentora Realtors Calicut" },
+    { "path": "/projects/sandalwood-plantation", "title": "Sandalwood Plantation | Pentora" },
+    { "path": "/projects/sandalwood-cave-forest", "title": "Sandalwood Cave Forest | Pentora" },
+    { "path": "/projects/sandalwood-farm-forest", "title": "Sandalwood Farm Forest | Pentora" }
+  ]
+}
