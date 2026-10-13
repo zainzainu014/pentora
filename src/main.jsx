@@ -7,6 +7,7 @@ import {
   Building2,
   ChevronDown,
   Leaf,
+  MapPin,
   Menu,
   Mountain,
   MoveUpRight,
@@ -24,6 +25,9 @@ const IMAGES = {
   cave: '/manus-storage/async-images/pDmnY54MKRlWFAbza2RbvC/image-3.webp',
   farm: '/manus-storage/async-images/pDmnY54MKRlWFAbza2RbvC/image-4.webp',
   vision: '/manus-storage/async-images/pDmnY54MKRlWFAbza2RbvC/image-5.webp',
+  plantationDetail: '/manus-storage/async-images/g78HoZaxvhwdT3Y43XgpsB/image-1.webp',
+  caveInterior: '/manus-storage/async-images/g78HoZaxvhwdT3Y43XgpsB/image-2.webp',
+  farmExperience: '/manus-storage/async-images/g78HoZaxvhwdT3Y43XgpsB/image-3.webp',
 };
 
 const projects = [
@@ -35,6 +39,7 @@ const projects = [
     category: 'Group Farming Project',
     location: 'Pulpally, Wayanad',
     image: IMAGES.plantation,
+    gallery: [IMAGES.plantation, IMAGES.plantationDetail, IMAGES.hero],
     accent: '#b99654',
     intro: 'A considered plantation experience where land, stewardship and long-term value grow together.',
     details: 'A group farming concept shaped around the quiet rhythm of sandalwood, thoughtful land planning and a more connected way to participate in Wayanad’s natural landscape.',
@@ -49,6 +54,7 @@ const projects = [
     category: 'Eco-Friendly Premium Resort',
     location: 'Vadanakkavala, Pulpally, Wayanad',
     image: IMAGES.cave,
+    gallery: [IMAGES.cave, IMAGES.caveInterior, IMAGES.vision],
     accent: '#2e8262',
     intro: 'A forest retreat imagined around elemental architecture, private water and slow luxury.',
     details: 'A hospitality concept that folds sculptural cave-model cottages into a forest setting, creating intimate stays with a strong sense of place and a lighter footprint.',
@@ -63,6 +69,7 @@ const projects = [
     category: 'Integrated Farming, Farm Tourism & Research',
     location: 'Kabinigiri, Pulpally, Wayanad',
     image: IMAGES.farm,
+    gallery: [IMAGES.farm, IMAGES.farmExperience, IMAGES.plantation],
     accent: '#799052',
     intro: 'A living landscape that brings farm stays, research and regenerative thinking into one place.',
     details: 'An integrated farm tourism and research concept with A-frame cottages, agricultural landscapes and a closer look at the practices that shape a more resilient future.',
@@ -252,6 +259,11 @@ function Gallery() {
   return <section className="gallery-section section-pad" id="gallery"><div className="shell"><div className="gallery-heading"><SectionIntro eyebrow="A sense of place" title={<>Look closer.<br /><em>Feel further.</em></>} /><span>Wayanad / Kerala<br />A living archive of<br />nature and possibility.</span></div><div className="gallery-grid"><button className="gallery-tile gallery-large" onClick={() => navigate('/projects/sandalwood-plantation')} data-reveal><img src={IMAGES.hero} alt="Misty hills of Wayanad" /><span>01 / The landscape <ArrowUpRight size={17} /></span></button><button className="gallery-tile gallery-tall" onClick={() => navigate('/projects/sandalwood-cave-forest')} data-reveal><img src={IMAGES.cave} alt="Cave forest retreat" /><span>02 / The retreat <ArrowUpRight size={17} /></span></button><button className="gallery-tile gallery-small" onClick={() => navigate('/projects/sandalwood-farm-forest')} data-reveal><img src={IMAGES.farm} alt="Farm forest cottage" /><span>03 / The experience <ArrowUpRight size={17} /></span></button></div></div></section>;
 }
 
+function LocationMap() {
+  const mapUrl = 'https://www.google.com/maps/search/?api=1&query=Pulpally%2C%20Wayanad%2C%20Kerala';
+  return <section className="location-section section-pad" id="location"><div className="shell location-grid"><div className="location-copy"><SectionIntro eyebrow="Find your way here" title={<>Closer to the<br /><em>quiet heart</em> of Wayanad.</>} copy="Our projects are rooted around Pulpally, where plantation landscapes, forest edges and a slower way of living meet." /><div className="location-list"><a href={mapUrl} target="_blank" rel="noreferrer"><span>01</span><div><strong>Sandalwood Plantation</strong><small>Pulpally, Wayanad</small></div><ArrowUpRight size={15} /></a><a href="https://www.google.com/maps/search/?api=1&query=Vadanakkavala%2C%20Pulpally%2C%20Wayanad" target="_blank" rel="noreferrer"><span>02</span><div><strong>Sandalwood Cave Forest</strong><small>Vadanakkavala, Pulpally</small></div><ArrowUpRight size={15} /></a><a href="https://www.google.com/maps/search/?api=1&query=Kabinigiri%2C%20Pulpally%2C%20Wayanad" target="_blank" rel="noreferrer"><span>03</span><div><strong>Sandalwood Farm Forest</strong><small>Kabinigiri, Pulpally</small></div><ArrowUpRight size={15} /></a></div></div><a className="map-card" href={mapUrl} target="_blank" rel="noreferrer" aria-label="Open Pentora project locations in Google Maps"><div className="map-grid-lines" /><div className="map-route map-route-one" /><div className="map-route map-route-two" /><div className="map-pin map-pin-main"><MapPin size={20} /></div><div className="map-pin map-pin-two"><MapPin size={15} /></div><div className="map-pin map-pin-three"><MapPin size={15} /></div><div className="map-card-label"><span>Explore the region</span><strong>Open in Google Maps <ArrowUpRight size={16} /></strong></div><div className="map-coordinates">11° 41′ N<br />76° 05′ E</div></a></div></section>;
+}
+
 function Contact() {
   const [sent, setSent] = useState(false);
   const handleSubmit = (event) => { event.preventDefault(); setSent(true); };
@@ -263,12 +275,12 @@ function Footer() {
 }
 
 function HomePage() {
-  return <><Hero onExplore={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })} /><About /><Projects /><Vision /><WhyChoose /><Gallery /><Contact /><Footer /></>;
+  return <><Hero onExplore={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })} /><About /><Projects /><Vision /><WhyChoose /><Gallery /><LocationMap /><Contact /><Footer /></>;
 }
 
 function ProjectPage({ project }) {
   useScrollReveal();
-  return <main className="project-page"><section className="project-hero" style={{ '--project-image': `url(${project.image})`, '--project-accent': project.accent }}><div className="project-hero-shade" /><div className="shell project-hero-content"><span className="eyebrow eyebrow-light">Project {project.number} · {project.category}</span><h1>{project.title.split(' ').map((word, index) => <React.Fragment key={`${word}-${index}`}>{index === 0 ? word : <><br /><em>{word}</em></>}</React.Fragment>)}</h1><p>{project.location}</p></div><div className="project-hero-footer shell"><span>Scroll to explore</span><ArrowDownRight size={19} /><span className="project-hero-code">PENTORA / {project.number}</span></div></section><section className="project-intro section-pad"><div className="shell project-intro-grid"><div><span className="eyebrow">A closer look</span><h2>{project.intro}</h2></div><div><p className="large-copy">{project.details}</p><div className="project-points">{project.points.map((point) => <span key={point}><i />{point}</span>)}</div></div></div></section><section className="project-gallery"><div className="shell"><div className="project-gallery-header"><span className="eyebrow">The details</span><p>Every detail is an invitation to slow down, look around and imagine what comes next.</p></div><div className="project-gallery-grid"><div className="project-gallery-primary"><img src={project.image} alt={project.title} /></div><div className="project-gallery-secondary"><img src={project.slug === 'sandalwood-plantation' ? IMAGES.hero : project.slug === 'sandalwood-cave-forest' ? IMAGES.vision : IMAGES.plantation} alt="Wayanad landscape" /></div></div></div></section><section className="project-cta section-pad"><div className="shell"><span className="eyebrow">Make it yours</span><h2>Let’s explore what<br /><em>could grow here.</em></h2><Button onClick={() => { navigate('/'); setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }), 60); }}>Enquire about {project.shortTitle}</Button></div></section><Footer /></main>;
+  return <main className="project-page"><section className="project-hero" style={{ '--project-image': `url(${project.image})`, '--project-accent': project.accent }}><div className="project-hero-shade" /><div className="shell project-hero-content"><span className="eyebrow eyebrow-light">Project {project.number} · {project.category}</span><h1>{project.title.split(' ').map((word, index) => <React.Fragment key={`${word}-${index}`}>{index === 0 ? word : <><br /><em>{word}</em></>}</React.Fragment>)}</h1><p>{project.location}</p></div><div className="project-hero-footer shell"><span>Scroll to explore</span><ArrowDownRight size={19} /><span className="project-hero-code">PENTORA / {project.number}</span></div></section><section className="project-intro section-pad"><div className="shell project-intro-grid"><div><span className="eyebrow">A closer look</span><h2>{project.intro}</h2></div><div><p className="large-copy">{project.details}</p><div className="project-points">{project.points.map((point) => <span key={point}><i />{point}</span>)}</div></div></div></section><section className="project-gallery"><div className="shell"><div className="project-gallery-header"><span className="eyebrow">The details</span><p>Every detail is an invitation to slow down, look around and imagine what comes next.</p></div><div className="project-gallery-grid">{project.gallery.map((image, index) => <div className={`project-photo project-photo-${index}`} key={image}><img src={image} alt={`${project.title} project view ${index + 1}`} /></div>)}</div></div></section><section className="project-cta section-pad"><div className="shell"><span className="eyebrow">Make it yours</span><h2>Let’s explore what<br /><em>could grow here.</em></h2><Button onClick={() => { navigate('/'); setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }), 60); }}>Enquire about {project.shortTitle}</Button></div></section><Footer /></main>;
 }
 
 function App() {
