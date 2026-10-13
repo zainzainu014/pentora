@@ -151,7 +151,6 @@ function Header({ scrolled, menuOpen, setMenuOpen }) {
       <Brand />
       <nav className="desktop-nav" aria-label="Primary navigation">
         <button onClick={() => go('home')}>Home</button>
-        <button onClick={() => go('about')}>About Us</button>
         <div className="nav-dropdown" onMouseEnter={() => setProjectsOpen(true)} onMouseLeave={() => setProjectsOpen(false)}>
           <button onClick={() => go('projects')} className="dropdown-toggle">Our Projects <ChevronDown size={14} /></button>
           <div className={`dropdown-panel ${projectsOpen ? 'show' : ''}`}>
@@ -166,7 +165,6 @@ function Header({ scrolled, menuOpen, setMenuOpen }) {
       <button className="mobile-menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation">{menuOpen ? <X /> : <Menu />}</button>
       <div className="mobile-nav">
         <button onClick={() => go('home')}>Home <ArrowRight size={15} /></button>
-        <button onClick={() => go('about')}>About Us <ArrowRight size={15} /></button>
         <span className="mobile-nav-label">Our Projects</span>
         {projects.map((project) => <button key={project.slug} className="mobile-project-link" onClick={() => navigate(`/projects/${project.slug}`)}><span>{project.number}</span>{project.title}<ArrowUpRight size={14} /></button>)}
         <button onClick={() => go('vision')}>Our Vision <ArrowRight size={15} /></button>
@@ -275,7 +273,7 @@ function Footer() {
 }
 
 function HomePage() {
-  return <><Hero onExplore={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })} /><About /><Projects /><Vision /><WhyChoose /><Gallery /><LocationMap /><Contact /><Footer /></>;
+  return <><Hero onExplore={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })} /><Projects /><Vision /><WhyChoose /><Gallery /><LocationMap /><Contact /><Footer /></>;
 }
 
 function ProjectPage({ project }) {
