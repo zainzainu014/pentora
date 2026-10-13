@@ -296,7 +296,7 @@ function Contact() {
 }
 
 function Footer() {
-  return <footer className="site-footer"><div className="shell"><div className="footer-top"><Brand compact /><p>Premium real estate.<br />Sustainable possibilities.</p><div className="footer-links"><span>Explore</span><button onClick={() => navigate('/')}>Home</button><button onClick={() => navigate('/#projects')}>Our projects</button><button onClick={() => navigate('/#contact')}>Contact</button></div><div className="footer-links"><span>Projects</span>{projects.map((project) => <button key={project.slug} onClick={() => navigate(`/projects/${project.slug}`)}>{project.shortTitle}</button>)}</div></div><div className="footer-bottom"><span>© 2024 Pentora Realtors Calicut</span><span>Wayanad, Kerala · India</span><span>Invest in nature. Build your legacy.</span></div></div></footer>;
+  return <footer className="site-footer"><div className="shell"><div className="footer-top"><Brand compact /><p>Premium real estate.<br />Sustainable possibilities.</p><div className="footer-links"><span>Explore</span><button onClick={() => navigate('/')}>Home</button><button onClick={() => navigate('/#projects')}>Our projects</button><button onClick={() => navigate('/#contact')}>Contact</button></div><div className="footer-links"><span>Projects</span>{projects.map((project) => <button key={project.slug} onClick={() => navigate(`/projects/${project.slug}`)}>{project.shortTitle}</button>)}</div></div><div className="footer-bottom"><span>Pentora Realtors Calicut</span><span>Wayanad, Kerala · India</span><span>Invest in nature. Build your legacy.</span></div></div></footer>;
 }
 
 function HomePage() {
