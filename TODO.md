@@ -12,4 +12,5 @@
 - [x] Contact and Enquiry includes the supplied email, phone, Instagram handle, project selector, form fields, WhatsApp and Instagram actions, and footer links to every project page.
 - [x] Location section presents the Pulpally/Wayanad project area and opens the corresponding Google Maps search when the map or project location rows are touched.
 - [x] Dedicated project pages include expanded three-image galleries with project-specific plantation, cave-resort, and farm-forest visuals.
+- [x] Scroll experience includes staggered reveal animations, section image parallax, a cinematic vision-image depth effect, hover motion, and a top scroll-progress indicator, with reduced-motion support.
 - [x] Responsive behavior is optimized for desktop, tablet, and mobile, with build, route manifest, diagnostics, and preview validation completed.

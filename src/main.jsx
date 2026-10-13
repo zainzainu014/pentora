@@ -90,6 +90,7 @@ const features = [
 function useScrollReveal() {
   useEffect(() => {
     const nodes = document.querySelectorAll('[data-reveal]');
+    nodes.forEach((node, index) => node.style.setProperty('--reveal-delay', `${Math.min(index % 6, 5) * 70}ms`));
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -100,6 +101,28 @@ function useScrollReveal() {
     }, { threshold: 0.14 });
     nodes.forEach((node) => observer.observe(node));
     return () => observer.disconnect();
+  }, []);
+}
+
+function useScrollParallax() {
+  useEffect(() => {
+    const nodes = document.querySelectorAll('[data-parallax]');
+    let frame = 0;
+    const update = () => {
+      const viewport = window.innerHeight;
+      nodes.forEach((node) => {
+        const rect = node.getBoundingClientRect();
+        const distance = (rect.top + rect.height / 2 - viewport / 2) / viewport;
+        const speed = Number(node.dataset.parallax || 0.08);
+        node.style.setProperty('--parallax-y', `${distance * speed * -100}px`);
+      });
+      frame = 0;
+    };
+    const handleScroll = () => { if (!frame) frame = window.requestAnimationFrame(update); };
+    update();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
+    return () => { window.removeEventListener('scroll', handleScroll); window.removeEventListener('resize', handleScroll); if (frame) window.cancelAnimationFrame(frame); };
   }, []);
 }
 
@@ -148,6 +171,7 @@ function Header({ scrolled, menuOpen, setMenuOpen }) {
 
   return (
     <header className={`site-header ${scrolled ? 'is-scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
+      <span className="scroll-progress" aria-hidden="true" />
       <Brand />
       <nav className="desktop-nav" aria-label="Primary navigation">
         <button onClick={() => go('home')}>Home</button>
@@ -245,7 +269,7 @@ function Projects() {
 
 function Vision() {
   return (
-    <section className="vision-section" id="vision"><div className="vision-image" /><div className="vision-overlay" /><div className="shell vision-content" data-reveal><span className="eyebrow eyebrow-light">Our vision</span><h2>A vision rooted<br />in <em>nature.</em><br />A future built<br />on value.</h2><div className="vision-copy"><span className="vision-line" /><p>Creating destinations where sustainable agriculture, responsible development, nature, tourism, and innovation come together to shape meaningful experiences and lasting value.</p></div></div><span className="vision-side-label">ROOTED IN PLACE / BUILT FOR TOMORROW</span></section>
+    <section className="vision-section" id="vision"><div className="vision-image" data-parallax="0.12" /><div className="vision-overlay" /><div className="shell vision-content" data-reveal><span className="eyebrow eyebrow-light">Our vision</span><h2>A vision rooted<br />in <em>nature.</em><br />A future built<br />on value.</h2><div className="vision-copy"><span className="vision-line" /><p>Creating destinations where sustainable agriculture, responsible development, nature, tourism, and innovation come together to shape meaningful experiences and lasting value.</p></div></div><span className="vision-side-label">ROOTED IN PLACE / BUILT FOR TOMORROW</span></section>
   );
 }
 
@@ -290,7 +314,18 @@ function App() {
 
   useEffect(() => { const onPop = () => setPath(window.location.pathname); window.addEventListener('popstate', onPop); return () => window.removeEventListener('popstate', onPop); }, []);
   useEffect(() => { const handle = () => setScrolled(window.scrollY > 36); window.addEventListener('scroll', handle, { passive: true }); return () => window.removeEventListener('scroll', handle); }, []);
+  useEffect(() => {
+    const updateProgress = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      document.documentElement.style.setProperty('--scroll-progress', `${max > 0 ? (window.scrollY / max) * 100 : 0}%`);
+    };
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+    return () => { window.removeEventListener('scroll', updateProgress); window.removeEventListener('resize', updateProgress); };
+  }, []);
   useScrollReveal();
+  useScrollParallax();
 
   useEffect(() => { document.body.classList.toggle('no-scroll', splash); return () => document.body.classList.remove('no-scroll'); }, [splash]);
 
