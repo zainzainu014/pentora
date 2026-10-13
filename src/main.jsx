@@ -220,7 +220,7 @@ function Hero({ onExplore }) {
       <div className="hero-overlay" />
       <div className="hero-grain" />
       <div className="hero-content shell">
-        <div className="hero-kicker"><span /> Wayanad, Kerala <span className="kicker-rule" /> Since 2014</div>
+        <div className="hero-kicker"><span /> Wayanad, Kerala</div>
         <h1>Invest in <em>Nature.</em><br />Build Your Legacy.</h1>
         <p>Discover exceptional opportunities in sustainable sandalwood plantations, luxury forest resorts, and integrated farm tourism with Pentora Realtors Calicut.</p>
         <div className="hero-actions"><Button onClick={onExplore}>Explore our projects</Button><Button variant="ghost" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Contact our team</Button></div>
