@@ -13,4 +13,5 @@
 - [x] Location section presents the Pulpally/Wayanad project area and opens the corresponding Google Maps search when the map or project location rows are touched.
 - [x] Dedicated project pages include expanded three-image galleries with project-specific plantation, cave-resort, and farm-forest visuals.
 - [x] Scroll experience includes staggered reveal animations, section image parallax, a cinematic vision-image depth effect, hover motion, and a top scroll-progress indicator, with reduced-motion support.
+- [x] Contact area includes a lead-generation section with project guidance benefits, name/phone/email/project qualification fields, enquiry message, confirmation state, email/phone and WhatsApp follow-up actions.
 - [x] Responsive behavior is optimized for desktop, tablet, and mobile, with build, route manifest, diagnostics, and preview validation completed.
