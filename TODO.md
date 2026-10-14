@@ -14,4 +14,7 @@
 - [x] Dedicated project pages include expanded three-image galleries with project-specific plantation, cave-resort, and farm-forest visuals.
 - [x] Scroll experience includes staggered reveal animations, section image parallax, a cinematic vision-image depth effect, hover motion, and a top scroll-progress indicator, with reduced-motion support.
 - [x] Contact area includes a lead-generation section with project guidance benefits, name/phone/email/project qualification fields, enquiry message, confirmation state, email/phone and WhatsApp follow-up actions.
+- [x] Project 01 includes the supplied “Transforming Green Investments into Generational Wealth” vision with the supplied 1400 Acres, 28,000 Future Millionaires, One Vision messaging.
+- [x] Project 02 includes the supplied “Our Vision for Cave Cottages” statement about nature, innovation, world-class comfort, and the serene beauty of a sandalwood forest.
+- [x] Project 03 includes the supplied “Our Vision for Integrated Farming” statement about agriculture, animal husbandry, modern farming technologies, sustainability, food security, and long-term economic growth.
 - [x] Responsive behavior is optimized for desktop, tablet, and mobile, with build, route manifest, diagnostics, and preview validation completed.
