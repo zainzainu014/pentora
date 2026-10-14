@@ -19,3 +19,4 @@
 - [x] Project 03 includes the supplied “Our Vision for Integrated Farming” statement about agriculture, animal husbandry, modern farming technologies, sustainability, food security, and long-term economic growth.
 - [x] Browser-facing website title and description use the requested name “pentorarealtorscalicut”.
 - [x] Responsive behavior is optimized for desktop, tablet, and mobile, with build, route manifest, diagnostics, and preview validation completed.
+- [x] Vercel image portability is fixed by downloading every referenced image into `public/images/`, using lowercase absolute `/images/filename` paths, keeping `.gitignore` from excluding image assets, leaving Vite without a `base` override, and confirming all image files are present in `dist/images` after `pnpm build`.

@@ -20,14 +20,14 @@ import './styles.css';
 
 const LOGO = '/images/pentora-logo.png';
 const IMAGES = {
-  hero: '/manus-storage/async-images/pDmnY54MKRlWFAbza2RbvC/image-1.webp',
-  plantation: '/manus-storage/async-images/pDmnY54MKRlWFAbza2RbvC/image-2.webp',
-  cave: '/manus-storage/async-images/pDmnY54MKRlWFAbza2RbvC/image-3.webp',
-  farm: '/manus-storage/async-images/pDmnY54MKRlWFAbza2RbvC/image-4.webp',
-  vision: '/manus-storage/async-images/pDmnY54MKRlWFAbza2RbvC/image-5.webp',
-  plantationDetail: '/manus-storage/async-images/g78HoZaxvhwdT3Y43XgpsB/image-1.webp',
-  caveInterior: '/manus-storage/async-images/g78HoZaxvhwdT3Y43XgpsB/image-2.webp',
-  farmExperience: '/manus-storage/async-images/g78HoZaxvhwdT3Y43XgpsB/image-3.webp',
+  hero: '/images/hero.webp',
+  plantation: '/images/plantation.webp',
+  cave: '/images/cave.webp',
+  farm: '/images/farm.webp',
+  vision: '/images/vision.webp',
+  plantationDetail: '/images/plantation-detail.webp',
+  caveInterior: '/images/cave-interior.webp',
+  farmExperience: '/images/farm-experience.webp',
 };
 
 const projects = [

@@ -55,7 +55,7 @@ img { max-width: 100%; display: block; }
 .header-cta:hover { background: var(--emerald); color: white; border-color: var(--emerald); }
 .mobile-menu-button, .mobile-nav { display: none; }
 .hero { position: relative; min-height: min(900px, 100svh); height: 100svh; display: flex; align-items: center; overflow: hidden; background: var(--forest); color: white; }
-.hero-media { position: absolute; inset: -7%; background-image: url('/manus-storage/async-images/pDmnY54MKRlWFAbza2RbvC/image-1.webp'); background-size: cover; background-position: center; animation: hero-zoom 16s ease-out forwards; }
+.hero-media { position: absolute; inset: -7%; background-image: url('/images/hero.webp'); background-size: cover; background-position: center; animation: hero-zoom 16s ease-out forwards; }
 .hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,24,16,.82) 0%, rgba(5,24,16,.52) 42%, rgba(5,24,16,.12) 100%), linear-gradient(0deg, rgba(5,24,16,.6), transparent 50%); }
 .hero-grain { position: absolute; inset: 0; opacity: .12; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E"); pointer-events: none; }
 @keyframes hero-zoom { from { transform: scale(1.03); } to { transform: scale(1.12); } }
@@ -125,7 +125,7 @@ img { max-width: 100%; display: block; }
 .projects-footnote span { font-size: 10px; color: var(--gold); letter-spacing: .15em; }
 .projects-footnote p { margin: 0; color: var(--muted); font-size: 12px; max-width: 500px; line-height: 1.6; }
 .vision-section { position: relative; min-height: 760px; display: flex; align-items: center; overflow: hidden; background: var(--forest); color: white; }
-.vision-image { position: absolute; inset: -8% 0; background: url('/manus-storage/async-images/pDmnY54MKRlWFAbza2RbvC/image-5.webp') center/cover; }
+.vision-image { position: absolute; inset: -8% 0; background: url('/images/vision.webp') center/cover; }
 .vision-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,32,22,.9), rgba(5,32,22,.63) 47%, rgba(5,32,22,.2)); }
 .vision-content { position: relative; z-index: 1; }
 .vision-content h2 { font: 500 clamp(50px, 7.5vw, 106px)/.94 var(--serif); letter-spacing: -.065em; margin: 28px 0; max-width: 760px; }
