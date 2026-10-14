@@ -17,4 +17,5 @@
 - [x] Project 01 includes the supplied “Transforming Green Investments into Generational Wealth” vision with the supplied 1400 Acres, 28,000 Future Millionaires, One Vision messaging.
 - [x] Project 02 includes the supplied “Our Vision for Cave Cottages” statement about nature, innovation, world-class comfort, and the serene beauty of a sandalwood forest.
 - [x] Project 03 includes the supplied “Our Vision for Integrated Farming” statement about agriculture, animal husbandry, modern farming technologies, sustainability, food security, and long-term economic growth.
+- [x] Browser-facing website title and description use the requested name “pentorarealtorscalicut”.
 - [x] Responsive behavior is optimized for desktop, tablet, and mobile, with build, route manifest, diagnostics, and preview validation completed.
